@@ -1,3 +1,5 @@
+# Libraries
+
 library(shiny)
 library(DT)
 library(data.table)
@@ -34,3 +36,12 @@ library(mapproj)
 library(tmap)
 library(tmaptools)
 library(sf)
+
+
+####### Necessary Lookup Files ########
+HB_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/hb lookup.csv")
+
+HB_Lookup_Cleaned <- HB_Lookup |>
+  select(-Country,-HBDateEnacted)|>
+  filter(is.na(HBDateArchived))|>
+  select(-HBDateArchived)
