@@ -41,7 +41,16 @@ library(sf)
 ####### Necessary Lookup Files ########
 HB_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/hb lookup.csv")
 
+####### Data Cleaning to speed up processes when called upon by server ########
+
+# Healthboard Lookup File
 HB_Lookup_Cleaned <- HB_Lookup |>
   select(-Country,-HBDateEnacted)|>
   filter(is.na(HBDateArchived))|>
   select(-HBDateArchived)
+
+# Council Lookup File
+Council_Lookup_Cleaned <- Council_Lookup |>
+  select(CA,CAName,CADateArchived)|>
+  filter(is.na(CADateArchived))|>
+  select(-CADateArchived)
