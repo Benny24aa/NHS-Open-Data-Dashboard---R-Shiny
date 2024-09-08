@@ -68,3 +68,7 @@ Interminate_Zone_Lookup_Cleaned <- Interminate_Zone_Lookup|>
 # Data Zone Lookup File
 Data_Zone_Lookup_Cleaned <- Data_Zone_Lookup |>
   select(DataZone, DataZoneName, IntZone, CA, HB) #Int_Zone, CA and HB codes kept for future left_join when needed and to speed up app by removing unnecessary data when not needed.
+
+# Hospital Lookup File
+Hospital_Lookup_Cleaned <- Hospital_Lookup |>
+  select(HospitalCode, HospitalName, HealthBoard, CouncilArea, IntermediateZone, DataZone) ### Kept codes for future left_join when needed
