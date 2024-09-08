@@ -46,7 +46,7 @@ HB_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data 
 Council_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/council lookup.csv")
 Interminate_Zone_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/iz2011_codes_and_labels_14072022.csv")
 Data_Zone_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/dz2011_codes_and_labels_21042020.csv")
-
+Hospital_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Lookups/hospitals.csv")
 ####### Data Cleaning to speed up processes when called upon by server ########
 
 # Healthboard Lookup File
@@ -68,3 +68,7 @@ Interminate_Zone_Lookup_Cleaned <- Interminate_Zone_Lookup|>
 # Data Zone Lookup File
 Data_Zone_Lookup_Cleaned <- Data_Zone_Lookup |>
   select(DataZone, DataZoneName, IntZone, CA, HB) #Int_Zone, CA and HB codes kept for future left_join when needed and to speed up app by removing unnecessary data when not needed.
+
+# Hospital Lookup File
+Hospital_Lookup_Cleaned <- Hospital_Lookup |>
+  select(HospitalCode, HospitalName, HealthBoard, CouncilArea, IntermediateZone, DataZone) ### Kept codes for future left_join when needed
