@@ -2,10 +2,11 @@ information <- tabPanel(title = "Information",
          icon = icon("info-circle"),
          fluidRow(
            column(6,
-                  h2("Welcome to the NHS Open Data Dashboard", style = "color:  #336699 ; font-weight: 600")),
+                  h2("Welcome to the NHS Open Data Dashboard", style = "color:  #336699 ; font-weight: 600"))),
+           
+         fluidRow(
            column(6, actionButton("new_next", tags$b("New content and future updates"),
-                                  icon = icon('calendar-alt')))
-         ),
+                                  icon = icon('calendar-alt')))),
          
          fluidRow(
            column(12,
