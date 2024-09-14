@@ -37,7 +37,17 @@ library(tmap)
 library(tmaptools)
 library(sf)
 library(phsopendata)
+library(plotly)
+library(crosstalk)
+library(lubridate)
+library(kableExtra)
+### Filter Changes
 
+ref_file_list <- c("HB Lookup" =" HB_Lookup_Cleaned",
+                            "Council Lookup" = "Council_Lookup_Cleaned",
+                            "Interminate Zone Lookup" = "Interminate_Zone_Lookup_Cleaned",
+                            "Data Zone Lookup" = "Data_Zone_Lookup_Cleaned",
+                            "Hospital Lookup" = "Hospital_Lookup_Cleaned")
 
 #### Geo Lookup Script ####
 source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/Geo Lookup Source Script.R'),  local = TRUE)$value 
