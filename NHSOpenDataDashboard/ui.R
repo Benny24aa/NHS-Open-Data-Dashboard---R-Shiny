@@ -13,9 +13,8 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               HTML("<html lang='en'>")),
            
            ##### Tab Panels
-           
            information, ### Information Tab being called on by UI
-           referencefile
+           navbarMenu("Reference Files", geofilesui)#Nav Bar for all reference files
 
 
 
