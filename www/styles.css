@@ -18,9 +18,9 @@
 
 /* NAVIGATION BAR/HEADER */
   
-/* Changes colour of Navigation bar to PHS purple */  
+/* Changes colour of Navigation bar to dark blue like the tableau dashboard */  
 .navbar-default {
-  background-color: #3F3685; 
+  background-color: #336699; 
   
 }  
        
@@ -41,7 +41,7 @@
 /* Changes colour of active (clicked) tab on the nav bar and adds rounded corners */
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
   color: #ffffff; 
-  background-color: #312760;
+  background-color: #336699;
   border-radius: 10px 10px 0 0;
   
 }
@@ -49,7 +49,7 @@
 /* Style the tab when hovered over */
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;     
-  background-color: #5343a3;
+  background-color: #336681;
   border-radius: 10px 10px 0 0;
   
 }
