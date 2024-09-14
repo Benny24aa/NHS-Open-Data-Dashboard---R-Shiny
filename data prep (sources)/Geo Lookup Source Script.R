@@ -7,7 +7,7 @@ HB_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data 
 Council_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Initial Lookups/council lookup.csv")
 Interminate_Zone_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Initial Lookups/iz2011_codes_and_labels_14072022.csv")
 Data_Zone_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Initial Lookups/dz2011_codes_and_labels_21042020.csv")
-
+Hospital_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Initial Lookups/hospitals.csv")
 ####### Data Cleaning to speed up processes when called upon by server ########
 
 # Healthboard Lookup File
