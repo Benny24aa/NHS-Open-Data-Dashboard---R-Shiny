@@ -1,14 +1,45 @@
 ### Weekly Accident and Emergency Data taken from Open Data through PHS Open Data Library
-weeklyaccidentandemergencydata <- get_resource(res_id = "a5f7ca94-c810-41b5-a7c9-25c18d43e5a4")
+accidentandemergencydata <- get_resource(res_id = "a5f7ca94-c810-41b5-a7c9-25c18d43e5a4")
 
-weeklyaccidentandemergencydata_cleaned <- weeklyaccidentandemergencydata |>
+accidentandemergencydata_cleaned <- accidentandemergencydata |>
   select(-Country,-DepartmentType)|> ### Removed both columns as both have the same value for all rows
   rename(HospitalCode = TreatmentLocation)|> ### To allow for future left_join with Hospital reference file
-  rename(HB = HBT) ### To allow for future left_join with HBT reference file
+  rename(HB = HBT)  ### To allow for future left_join with HBT reference file
  
 
-weeklyaccidentandemergencydata_cleaned <- left_join(weeklyaccidentandemergencydata_cleaned, Hospital_Lookup_Final, by = "HospitalCode") %>%  ### Left Join for Hospital Names
+accidentandemergencydata_cleaned <- left_join(accidentandemergencydata_cleaned, Hospital_Lookup_Final, by = "HospitalCode") %>%  ### Left Join for Hospital Names
   select(-HospitalCode) #### Removing hospital code as no longer needed anymore
 
-weeklyaccidentandemergencydata_cleaned <- left_join(weeklyaccidentandemergencydata_cleaned, HB_Lookup_Cleaned, by = "HB") %>% #### left join for Healthcode Name
-  select(-HB) #### Removing HB code as not needed anymore
+accidentandemergencydata_cleaned <- left_join(accidentandemergencydata_cleaned, HB_Lookup_Cleaned, by = "HB") %>% #### left join for Healthcode Name
+  select(-HB)    #### Removing HB code as not needed anymore
+  
+#################### Preparing Data for Plotly Graphs and Analysis for Healthboard Level Section ###############################################
+
+### Total Number of People who attended A&E - Health Board Level ###
+
+total_ae_episodes_healthboard_level <- accidentandemergencydata_cleaned %>% 
+  select(HBName, WeekEndingDate, NumberOfAttendancesEpisode) %>% 
+  group_by(HBName, WeekEndingDate) %>% 
+  summarise(totalattends = sum(NumberOfAttendancesEpisode), .groups = 'drop')
+
+### Total Number of People who attended weren't seen within 4 hours - Health Board Level###
+
+total_ae_episodes_seen_over_four_hours <- accidentandemergencydata_cleaned %>% 
+  select(HBName, WeekEndingDate, NumberOver4HoursEpisode) %>% 
+  group_by(HBName, WeekEndingDate) %>% 
+  summarise(totalattendsover4hours = sum(NumberOver4HoursEpisode), .groups = 'drop')
+
+### Total Number of People who attended weren't seen within 8 hours - Health Board Level###
+
+total_ae_episodes_seen_over_eight_hours <- accidentandemergencydata_cleaned %>% 
+  select(HBName, WeekEndingDate, NumberOver8HoursEpisode) %>% 
+  group_by(HBName, WeekEndingDate) %>% 
+  summarise(totalattendsover8hours = sum(NumberOver8HoursEpisode), .groups = 'drop')
+
+
+### Total Number of People who attended weren't seen within 12 hours - Health Board Level###
+
+total_ae_episodes_seen_over_twelve_hours <- accidentandemergencydata_cleaned %>% 
+  select(HBName, WeekEndingDate, NumberOver12HoursEpisode) %>% 
+  group_by(HBName, WeekEndingDate) %>% 
+  summarise(totalattendsover12hours = sum(NumberOver12HoursEpisode), .groups = 'drop')
