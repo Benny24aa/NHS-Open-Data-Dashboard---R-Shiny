@@ -3,7 +3,7 @@
 source("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/ui (sources)/Information Tab UI Code.R"
 )# Sourcing in Information Tab from different script
 source("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/ui (sources)/Reference File Tab UI Code.R") # Sourcing in Reference File UI tab script
-
+source("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/ui (sources)/A&E Healthboard Breakdown UI Code.R")
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
                               target = "_blank"),
@@ -14,7 +14,8 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            
            ##### Tab Panels
            information, ### Information Tab being called on by UI
-           navbarMenu("Reference Files", geofilesui)#Nav Bar for all reference files
+           navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
+           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Healthboard_Breakdown) 
 
 
 
