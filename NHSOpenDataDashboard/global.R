@@ -49,6 +49,7 @@ ref_file_list <- c("Hospital Lookup" = "Hospital_Lookup_Cleaned",
                    "Council Lookup" = "Council_Lookup_Cleaned",
                    "HB Lookup" =" HB_Lookup")
 
-#### Geo Lookup Script ####
+#### Geo Lookup Data Prep Script ####
 source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/Geo Lookup Source Script.R'))
+#### Accident and Emergency Data Prep Script ####
 source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/WeeklyA&EActivityandWaitingTimesPrep.R'))
