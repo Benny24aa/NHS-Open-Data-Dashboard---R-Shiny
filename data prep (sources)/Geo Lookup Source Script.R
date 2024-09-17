@@ -10,6 +10,14 @@ Data_Zone_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R Ap
 Hospital_Lookup <- read.csv("C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/Initial Lookups/hospitals.csv")
 ####### Data Cleaning to speed up processes when called upon by server ########
 
+### Data list for filter on UI for reference files
+ref_file_list <- c("Hospital Lookup" = "Hospital_Lookup_Cleaned",
+                   "Data Zone Lookup" = "Data_Zone_Lookup_Cleaned",
+                   "Interminate Zone Lookup" = "Interminate_Zone_Lookup_Cleaned",
+                   "Council Lookup" = "Council_Lookup_Cleaned",
+                   "HB Lookup" =" HB_Lookup")
+
+
 # Healthboard Lookup File
 HB_Lookup_Cleaned <- HB_Lookup |>
   select(-Country,-HBDateEnacted)|>
