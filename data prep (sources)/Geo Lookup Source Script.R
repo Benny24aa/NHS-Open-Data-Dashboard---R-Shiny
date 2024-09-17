@@ -33,3 +33,6 @@ Data_Zone_Lookup_Cleaned <- Data_Zone_Lookup |>
 # Hospital Lookup File
 Hospital_Lookup_Cleaned <- Hospital_Lookup |>
   select(HospitalCode, HospitalName, HealthBoard, CouncilArea, IntermediateZone, DataZone) ### Kept codes for future left_join when needed
+
+Hospital_Lookup_Final <- Hospital_Lookup_Cleaned |>
+  select(HospitalCode, HospitalName)
