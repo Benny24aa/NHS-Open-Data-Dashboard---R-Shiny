@@ -48,5 +48,5 @@ total_ae_episodes_seen_over_twelve_hours <- accidentandemergencydata_cleaned %>%
   summarise(totalattendsover12hours = sum(NumberOver12HoursEpisode), .groups = 'drop')#Summing totals based on group_by to have a single colum per hbname per weekendingdate
 
 
-#################### Preparing Data for Plotly Graphs and Analysis for Healthboard Level Section creating own measure of totals minus people not seen ###############################################
+#################### Preparing Data for Plotly Graphs and Analysis for Health board Level Section creating own measure of totals minus people not seen ###############################################
 
