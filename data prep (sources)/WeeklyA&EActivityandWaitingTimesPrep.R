@@ -31,6 +31,11 @@ total_ae_episodes_seen_over_four_hours <- accidentandemergencydata_cleaned %>% #
   group_by(HBName, WeekEndingDate) %>% 
   summarise(totalattendsover4hours = sum(NumberOver4HoursEpisode), .groups = 'drop') #Summing totals based on group_by to have a single colum per hbname per weekendingdate
 
+total_ae_episodes_seen_over_four_hours <- full_join(total_ae_episodes_healthboard_level, total_ae_episodes_seen_over_four_hours, by = c("HBName", "WeekEndingDate")) %>%  # for subtraction of total
+mutate(afterfourhours = totalattends - totalattendsover4hours) %>%  # Number seen within 4 hours
+select(-totalattends,-totalattendsover4hours) %>% 
+  mutate(type = "People seen within four hours")
+
 ### Total Number of People who attended weren't seen within 8 hours - Health Board Level###
 
 total_ae_episodes_seen_over_eight_hours <- accidentandemergencydata_cleaned %>% ### Creating a new dataframe using cleaned dataset from open data
@@ -38,8 +43,10 @@ total_ae_episodes_seen_over_eight_hours <- accidentandemergencydata_cleaned %>% 
   group_by(HBName, WeekEndingDate) %>% 
   summarise(totalattendsover8hours = sum(NumberOver8HoursEpisode), .groups = 'drop')#Summing totals based on group_by to have a single colum per hbname per weekendingdate
 
-
-
+total_ae_episodes_seen_over_eight_hours <- full_join(total_ae_episodes_healthboard_level, total_ae_episodes_seen_over_eight_hours, by = c("HBName", "WeekEndingDate")) %>%  # for subtraction of total
+mutate(aftereighthours = totalattends - totalattendsover8hours) %>%  # Number seen within 8 hours
+select(-totalattends,-totalattendsover8hours) %>% 
+  mutate(type = "People seen within eight hours")
 ### Total Number of People who attended weren't seen within 12 hours - Health Board Level###
 
 total_ae_episodes_seen_over_twelve_hours <- accidentandemergencydata_cleaned %>% ### Creating a new dataframe using cleaned dataset from open data
@@ -47,6 +54,7 @@ total_ae_episodes_seen_over_twelve_hours <- accidentandemergencydata_cleaned %>%
   group_by(HBName, WeekEndingDate) %>% 
   summarise(totalattendsover12hours = sum(NumberOver12HoursEpisode), .groups = 'drop')#Summing totals based on group_by to have a single colum per hbname per weekendingdate
 
-
-#################### Preparing Data for Plotly Graphs and Analysis for Health board Level Section creating own measure of totals minus people not seen ###############################################
-
+total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthboard_level, total_ae_episodes_seen_over_twelve_hours, by = c("HBName", "WeekEndingDate")) %>%  # for subtraction of total 
+mutate(aftertwelvehours = totalattends - totalattendsover12hours) %>%  # Number seen within 12 hours
+  select(-totalattends,-totalattendsover12hours) %>% 
+  mutate(type = "People seen within twelve hours")
