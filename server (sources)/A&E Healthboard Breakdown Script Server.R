@@ -4,7 +4,7 @@
 
 filter_healthboard_ae <- reactive({
   
-  filter_healthboard_ae <- total_ae_episodes_healthboard_level_cleaned[total_ae_episodes_healthboard_level_cleaned$HBName == input$hb_ae_input,]
+  filter_healthboard_ae <-  merged_ae_data_4_day [merged_ae_data_4_day$HBName == input$hb_ae_input,]
   
   return(filter_healthboard_ae)
   
