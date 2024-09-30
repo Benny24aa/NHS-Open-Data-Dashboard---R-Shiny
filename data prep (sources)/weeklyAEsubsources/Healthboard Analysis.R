@@ -7,6 +7,7 @@ total_ae_episodes_healthboard_level <- accidentandemergencydata_cleaned %>%  ###
   group_by(HBName, WeekEndingDate) %>% 
   summarise(totalattends = sum(NumberOfAttendancesEpisode), .groups = 'drop') #Summing totals based on group_by to have a single colum per hbname per weekendingdate
 
+
 total_ae_episodes_healthboard_level_cleaned <- total_ae_episodes_healthboard_level %>% 
   mutate(type = "Total Attends") %>% 
   rename(totalseen = totalattends)
@@ -22,6 +23,7 @@ total_ae_episodes_seen_over_four_hours <- full_join(total_ae_episodes_healthboar
   select(-totalattends,-totalattendsover4hours) %>% 
   mutate(type = "People seen within four hours") %>% 
   rename(totalseen = afterfourhours)
+
 
 ### Total Number of People who attended weren't seen within 8 hours - Health Board Level###
 
@@ -48,4 +50,9 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
   mutate(type = "People seen within twelve hours")%>% 
   rename(totalseen = aftertwelvehours)
 
-merged_ae_data<- bind_rows(total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned)
+ merged_ae_data<- bind_rows(total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned) 
+
+ merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
+ 
+ merged_ae_data_4_day <- merged_ae_data %>% 
+   filter(type == "People seen within four hours")
