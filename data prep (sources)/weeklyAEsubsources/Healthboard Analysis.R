@@ -53,6 +53,16 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
  merged_ae_data<- bind_rows(total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned) 
 
  merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
+
  
  merged_ae_data_4_day <- merged_ae_data %>% 
-   filter(type == "People seen within four hours")
+   filter(type == "People seen within four hours") %>% 
+   select(-type)
+ 
+ merged_ae_data_8_day <- merged_ae_data %>% 
+   filter(type == "People seen within eight hours") %>% 
+   select(-type)
+ 
+ merged_ae_data_12_day <- merged_ae_data %>% 
+   filter(type == "People seen within twelve hours") %>% 
+   select(-type)
