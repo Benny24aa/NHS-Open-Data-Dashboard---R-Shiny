@@ -4,7 +4,7 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         p("This is the new weekly Accident & Emergency (A&E) open data area. From 2015 the weekly attendance and waiting times statistics at Emergency Departments (EDs) across Scotland "),
 
                         fluidRow(
-                        column(3, selectInput(inputId = "hb_ae_input", label = "select HB", choices = unique(total_ae_episodes_healthboard_level_cleaned$HBName)))),
+                        column(3, selectInput(inputId = "hb_ae_input", label = "select HB", choices = unique(merged_ae_data$HBName)))),
                         fluidRow(
                           column(3, plotlyOutput("total_ae_attend_by_hb", width = "300%", height = "600px"))
                         )
