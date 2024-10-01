@@ -11,11 +11,11 @@ Hospital_Lookup <- get_resource(res_id = "c698f450-eeed-41a0-88f7-c1e40a568acc")
 ####### Data Cleaning to speed up processes when called upon by server ########
 
 ### Data list for filter on UI for reference files
-ref_file_list <- c("Hospital Lookup" = "Hospital_Lookup_Cleaned",
+ref_file_list <- c("Hospital Lookup" = "Hospital_Lookup_Final",
                    "Data Zone Lookup" = "Data_Zone_Lookup_Cleaned",
                    "Interminate Zone Lookup" = "Interminate_Zone_Lookup_Cleaned",
                    "Council Lookup" = "Council_Lookup_Cleaned",
-                   "HB Lookup" =" HB_Lookup")
+                   "HB Lookup" =" HB_Lookup_Cleaned")
 
 
 # Healthboard Lookup File
