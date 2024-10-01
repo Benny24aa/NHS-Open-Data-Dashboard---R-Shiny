@@ -5,7 +5,7 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         fluidRow(
                           column(3, selectInput(inputId = "type_ae_input", label = "Select type of data you wish to see", choices = unique(merged_ae_data$type)))),
                         
-                        h3("Accident and Emergency - Statistics", style = "color: #336699 ; font-weight: 600"),
+                        h3("Accident and Emergency - Number seen within selected time period", style = "color: #336699 ; font-weight: 600"),
                         
                         fluidRow(
                           column(3, plotlyOutput("total_ae_attend_by_hb", width = "300%", height = "600px")))
