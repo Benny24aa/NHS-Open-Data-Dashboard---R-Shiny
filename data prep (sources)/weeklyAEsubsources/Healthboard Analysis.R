@@ -76,3 +76,15 @@ merged_ae_data_100k_rate <- merged_ae_data_100k_rate %>%
 merged_ae_data_full_data <- full_join(merged_ae_data_100k_rate, merged_ae_data, by  = c("HBName", "WeekEndingDate", "type")) %>% 
   select(-totalseen.y) %>% 
   rename(totalseen = totalseen.x)
+
+### Closes not needed dataframes to free up memory usage
+
+rm(merged_ae_data_100k_rate)
+rm(merged_ae_data)
+rm(total_ae_episodes_healthboard_level)
+rm(total_ae_episodes_healthboard_level_cleaned)
+rm(total_ae_episodes_seen_over_eight_hours)
+rm(total_ae_episodes_seen_over_four_hours)
+rm(total_ae_episodes_seen_over_twelve_hours)
+rm(accidentandemergencydata_cleaned)
+rm(accidentandemergencydata)
