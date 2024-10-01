@@ -58,8 +58,16 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
  
  merged_ae_data_100k_rate <- merged_ae_data %>% 
    filter(WeekEndingDate > '2020-01-01') %>% 
-   mutate(Year = WeekEndingDate)
+   mutate(Year = WeekEndingDate) %>% 
+   mutate(Year = gsub("2023", "2022", Year)) %>% 
+   mutate(Year = gsub("2024", "2022", Year))
  
  merged_ae_data_100k_rate$Year <- year(merged_ae_data_100k_rate$Year)
  
- 
+  merged_ae_data_100k_rate <- left_join(merged_ae_data_100k_rate,HB_Pop_Estimates,by = c("HBName", "Year")) #### Joining allages data onto dataset for rate calculation
+   
+merged_ae_data_100k_rate <- merged_ae_data_100k_rate %>% 
+  select(-HB, -Year) %>% 
+  mutate(Rate = totalseen/AllAges) %>% 
+  mutate(Rate = Rate * 100000) %>% 
+  select(-AllAges)
