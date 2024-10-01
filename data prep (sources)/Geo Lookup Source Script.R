@@ -54,8 +54,8 @@ HB_Pop_Estimates <- get_resource(res_id = "27a72cc8-d6d8-430c-8b4f-3109a9ceadb1"
 
 HB_Pop_Estimates <- HB_Pop_Estimates %>% 
   select(Year, HB, Sex, AllAges) %>% 
-  filter(Sex == "All") %>% 
-  select(-Sex) %>% 
-  filter(HB != "S92000003")
+  filter(Sex == "All") %>% # Just for whole population of HB
+  select(-Sex) %>% # Removed to speed up process
+  filter(HB != "S92000003") # Removes Scotland from analysis
 
 HB_Pop_Estimates <- full_join(HB_Pop_Estimates, HB_Lookup_Cleaned, by = "HB") 
