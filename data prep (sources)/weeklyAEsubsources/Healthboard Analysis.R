@@ -71,3 +71,7 @@ merged_ae_data_100k_rate <- merged_ae_data_100k_rate %>%
   mutate(Rate = totalseen/AllAges) %>% 
   mutate(Rate = Rate * 100000) %>% 
   select(-AllAges)
+
+merged_ae_data_full_data <- full_join(merged_ae_data_100k_rate, merged_ae_data, by  = c("HBName", "WeekEndingDate", "type")) %>% 
+  select(-totalseen.y) %>% 
+  rename(totalseen = totalseen.x)
