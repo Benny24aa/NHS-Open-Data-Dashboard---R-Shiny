@@ -24,6 +24,7 @@ HB_Lookup_Cleaned <- HB_Lookup |>
   filter(is.na(HBDateArchived))|>
   select(-HBDateArchived)
 
+
 # Council Lookup File
 Council_Lookup_Cleaned <- Council_Lookup |>
   select(CA,CAName,CADateArchived)|>
@@ -44,3 +45,17 @@ Hospital_Lookup_Cleaned <- Hospital_Lookup |>
 
 Hospital_Lookup_Final <- Hospital_Lookup_Cleaned |>
   select(HospitalCode, HospitalName)
+
+###################################
+####### Population Estimates ######
+###################################
+
+HB_Pop_Estimates <- get_resource(res_id = "27a72cc8-d6d8-430c-8b4f-3109a9ceadb1")
+
+HB_Pop_Estimates <- HB_Pop_Estimates %>% 
+  select(Year, HB, Sex, AllAges) %>% 
+  filter(Sex == "All") %>% 
+  select(-Sex) %>% 
+  filter(HB != "S92000003")
+
+HB_Pop_Estimates <- full_join(HB_Pop_Estimates, HB_Lookup_Cleaned, by = "HB") 
