@@ -4,11 +4,11 @@
 data_table <- reactive({
   
   table_data <- switch(input$ref_select,
-                            "HB_Lookup" = HB_Lookup,
+                            "Hospital_Lookup_Final" = Hospital_Lookup_Final,
                             "Council_Lookup_Cleaned" = Council_Lookup_Cleaned,
                             "Interminate_Zone_Lookup_Cleaned" = Interminate_Zone_Lookup_Cleaned,
                             "Data_Zone_Lookup_Cleaned" = Data_Zone_Lookup_Cleaned,
-                            "Hospital_Lookup_Cleaned" = Hospital_Lookup_Cleaned)
+                            "HB_Lookup_Cleaned" = HB_Lookup_Cleaned)
 })
 
 # Render Data Table 
