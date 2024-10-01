@@ -11,8 +11,8 @@ accidentandemergencydata_cleaned <- left_join(accidentandemergencydata_cleaned, 
   select(-HospitalCode) #### Removing hospital code as no longer needed anymore so removed to reduce size of dataframe
 
 accidentandemergencydata_cleaned <- left_join(accidentandemergencydata_cleaned, HB_Lookup_Cleaned, by = "HB") %>% #### left join for Healthcode Name
-  select(-HB)  %>%   #### Removing HB code as not needed anymore so removed to reduce size of dataframe
-  mutate(HBName = gsub("NHS ", "", HBName)) #Reducing the Size of the dataset by removing NHS from every column
+  select(-HB) # %>%   #### Removing HB code as not needed anymore so removed to reduce size of dataframe
+  # mutate(HBName = gsub("NHS ", "", HBName)) #Reducing the Size of the dataset by removing NHS from every column
 
 # Sourcing in Healthboard Analysis
 source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/weeklyAEsubsources/Healthboard Analysis.R'))
