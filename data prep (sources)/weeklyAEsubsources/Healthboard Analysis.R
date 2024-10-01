@@ -54,15 +54,12 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
 
  merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
 
+ #### 100k rates dataset
  
- merged_ae_data_4_day <- merged_ae_data %>% 
-   filter(type == "People seen within four hours") %>% 
-   select(-type)
+ merged_ae_data_100k_rate <- merged_ae_data %>% 
+   filter(WeekEndingDate > '2020-01-01') %>% 
+   mutate(Year = WeekEndingDate)
  
- merged_ae_data_8_day <- merged_ae_data %>% 
-   filter(type == "People seen within eight hours") %>% 
-   select(-type)
+ merged_ae_data_100k_rate$Year <- year(merged_ae_data_100k_rate$Year)
  
- merged_ae_data_12_day <- merged_ae_data %>% 
-   filter(type == "People seen within twelve hours") %>% 
-   select(-type)
+ 
