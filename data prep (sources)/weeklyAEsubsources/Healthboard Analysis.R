@@ -60,7 +60,8 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
    filter(WeekEndingDate > '2020-01-01') %>% 
    mutate(Year = WeekEndingDate) %>% 
    mutate(Year = gsub("2023", "2022", Year)) %>% 
-   mutate(Year = gsub("2024", "2022", Year))
+   mutate(Year = gsub("2024", "2022", Year)) %>% 
+   mutate(Year = gsub("2025", "2022", Year))
  
  merged_ae_data_100k_rate$Year <- year(merged_ae_data_100k_rate$Year)
  
