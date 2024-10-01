@@ -23,29 +23,30 @@ HB_Lookup_Cleaned <- HB_Lookup |>
   select(-Country,-HBDateEnacted)|>
   filter(is.na(HBDateArchived))|>
   select(-HBDateArchived)
-
+rm(HB_Lookup)
 
 # Council Lookup File
 Council_Lookup_Cleaned <- Council_Lookup |>
   select(CA,CAName,CADateArchived)|>
   filter(is.na(CADateArchived))|>
   select(-CADateArchived)
+rm(Council_Lookup)
 
 # Interminate Zone Lookup File
 Interminate_Zone_Lookup_Cleaned <- Interminate_Zone_Lookup|>
   select(IntZone,IntZoneName,CA, HB) #CA and HB codes kept for future left_join when needed and to speed up app by removing unnecessary data when not needed.
-
+rm(Interminate_Zone_Lookup)
 # Data Zone Lookup File
 Data_Zone_Lookup_Cleaned <- Data_Zone_Lookup |>
   select(DataZone, DataZoneName, IntZone, CA, HB) #Int_Zone, CA and HB codes kept for future left_join when needed and to speed up app by removing unnecessary data when not needed.
-
+rm(Data_Zone_Lookup)
 # Hospital Lookup File
 Hospital_Lookup_Cleaned <- Hospital_Lookup |>
   select(HospitalCode, HospitalName, HealthBoard, CouncilArea, IntermediateZone, DataZone) ### Kept codes for future left_join when needed
-
+rm(Hospital_Lookup)
 Hospital_Lookup_Final <- Hospital_Lookup_Cleaned |>
   select(HospitalCode, HospitalName)
-
+rm(Hospital_Lookup_Cleaned)
 ###################################
 ####### Population Estimates ######
 ###################################
