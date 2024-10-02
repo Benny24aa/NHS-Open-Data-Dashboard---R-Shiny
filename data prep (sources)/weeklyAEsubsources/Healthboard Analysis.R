@@ -132,3 +132,10 @@ deprivation_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>%
 deprivation_ae_analysis$Deprivation <- as.character(deprivation_ae_analysis$Deprivation) ### Changing Deprivation to a character rather than number
 
 deprivation_ae_analysis$Deprivation <- deprivation_ae_analysis$Deprivation %>% replace_na('Unknown')### Replacing NA data with unknown
+
+deprivation_ae_analysis <- deprivation_ae_analysis %>% 
+  mutate(Deprivation = gsub("1", "Deprivation Quintle 1 - Most Deprived", Deprivation)) %>% 
+  mutate(Deprivation = gsub("2", "Deprivation Quintle 2", Deprivation)) %>% 
+  mutate(Deprivation = gsub("3", "Deprivation Quintle 3", Deprivation)) %>% 
+  mutate(Deprivation = gsub("4", "Deprivation Quintle 4", Deprivation)) %>% 
+  mutate(Deprivation = gsub("5", "Deprivation Quintle 5 - Least Deprived", Deprivation))
