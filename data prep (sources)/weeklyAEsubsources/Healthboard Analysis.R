@@ -115,6 +115,9 @@ ae_age_analysis <- accidentandemergencydatademographicdata_cleaned %>%
   mutate(type = "Age Based Data") %>% 
   rename(Category = Age)
 
+ ae_age_analysis$Category <- ae_age_analysis$Category %>% replace_na('Unknown') ### Replacing NA data with unknown
+ 
+ ae_age_analysis$Month <- ym(ae_age_analysis$Month)
 ########## Gender Based Analysis for Graph ##########
 
 gender_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
@@ -125,7 +128,7 @@ gender_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>%
   rename(Category = Sex)
 
 gender_ae_analysis$Category <- gender_ae_analysis$Category %>% replace_na('Unknown') ### Replacing NA data with unknown
-
+gender_ae_analysis$Month <- ym(gender_ae_analysis$Month)
 ########## Deprivation Based Analysis for Graph ##########
 
 deprivation_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
@@ -145,5 +148,6 @@ deprivation_ae_analysis <- deprivation_ae_analysis %>%
   mutate(Category = gsub("3", "Deprivation Quintle 3", Category)) %>% 
   mutate(Category = gsub("4", "Deprivation Quintle 4", Category)) %>% 
   mutate(Category = gsub("5", "Deprivation Quintle 5 - Least Deprived", Category))
+deprivation_ae_analysis$Month <- ym(deprivation_ae_analysis$Month)
 
 merged_ae_demographic_data<- bind_rows(ae_age_analysis, deprivation_ae_analysis, gender_ae_analysis) 
