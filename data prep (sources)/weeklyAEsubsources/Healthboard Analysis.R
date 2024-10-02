@@ -106,3 +106,29 @@ accidentandemergencydatademographicdata <- accidentandemergencydatademographicda
 accidentandemergencydatademographicdata_cleaned <- left_join(accidentandemergencydatademographicdata, HB_Lookup_Cleaned, by = "HB") %>% 
   select(-HB)   # as left_join is complete, no need for HB code anymore
   
+########## Age Based Analysis for Graph ##########
+
+ae_age_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
+  select(-Deprivation, -Sex) %>% 
+  group_by(HBName, Age, Month) %>% 
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+
+########## Gender Based Analysis for Graph ##########
+
+gender_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
+  select(-Deprivation, -Age) %>% 
+  group_by(HBName, Sex, Month) %>% 
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+
+gender_ae_analysis$Sex <- gender_ae_analysis$Sex %>% replace_na('Unknown') ### Replacing NA data with unknown
+
+########## Deprivation Based Analysis for Graph ##########
+
+deprivation_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
+  select(-Sex, -Age) %>% 
+  group_by(HBName, Deprivation, Month) %>% 
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+
+deprivation_ae_analysis$Deprivation <- as.character(deprivation_ae_analysis$Deprivation) ### Changing Deprivation to a character rather than number
+
+deprivation_ae_analysis$Deprivation <- deprivation_ae_analysis$Deprivation %>% replace_na('Unknown')### Replacing NA data with unknown
