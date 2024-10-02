@@ -112,7 +112,8 @@ ae_age_analysis <- accidentandemergencydatademographicdata_cleaned %>%
   select(-Deprivation, -Sex) %>% 
   group_by(HBName, Age, Month) %>% 
   summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop') %>% 
-  mutate(type = "Age Based Data")
+  mutate(type = "Age Based Data") %>% 
+  rename(Category = Age)
 
 ########## Gender Based Analysis for Graph ##########
 
@@ -120,24 +121,29 @@ gender_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>%
   select(-Deprivation, -Age) %>% 
   group_by(HBName, Sex, Month) %>% 
   summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')%>% 
-  mutate(type = "Sex Based Data")
+  mutate(type = "Sex Based Data")%>% 
+  rename(Category = Sex)
 
-gender_ae_analysis$Sex <- gender_ae_analysis$Sex %>% replace_na('Unknown') ### Replacing NA data with unknown
+gender_ae_analysis$Category <- gender_ae_analysis$Category %>% replace_na('Unknown') ### Replacing NA data with unknown
 
 ########## Deprivation Based Analysis for Graph ##########
 
 deprivation_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
   select(-Sex, -Age) %>% 
   group_by(HBName, Deprivation, Month) %>% 
-  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop') %>% 
+  mutate(type = "Deprivation Based Data")%>% 
+  rename(Category = Deprivation)
 
-deprivation_ae_analysis$Deprivation <- as.character(deprivation_ae_analysis$Deprivation) ### Changing Deprivation to a character rather than number
+deprivation_ae_analysis$Category <- as.character(deprivation_ae_analysis$Category) ### Changing Deprivation to a character rather than number
 
-deprivation_ae_analysis$Deprivation <- deprivation_ae_analysis$Deprivation %>% replace_na('Unknown')### Replacing NA data with unknown
+deprivation_ae_analysis$Category <- deprivation_ae_analysis$Category %>% replace_na('Unknown')### Replacing NA data with unknown
 
 deprivation_ae_analysis <- deprivation_ae_analysis %>% 
-  mutate(Deprivation = gsub("1", "Deprivation Quintle 1 - Most Deprived", Deprivation)) %>% 
-  mutate(Deprivation = gsub("2", "Deprivation Quintle 2", Deprivation)) %>% 
-  mutate(Deprivation = gsub("3", "Deprivation Quintle 3", Deprivation)) %>% 
-  mutate(Deprivation = gsub("4", "Deprivation Quintle 4", Deprivation)) %>% 
-  mutate(Deprivation = gsub("5", "Deprivation Quintle 5 - Least Deprived", Deprivation))
+  mutate(Category = gsub("1", "Deprivation Quintle 1 - Most Deprived", Category)) %>% 
+  mutate(Category = gsub("2", "Deprivation Quintle 2", Category)) %>% 
+  mutate(Category = gsub("3", "Deprivation Quintle 3", Category)) %>% 
+  mutate(Category = gsub("4", "Deprivation Quintle 4", Category)) %>% 
+  mutate(Category = gsub("5", "Deprivation Quintle 5 - Least Deprived", Category))
+
+merged_ae_demographic_data<- bind_rows(ae_age_analysis, deprivation_ae_analysis, gender_ae_analysis) 
