@@ -111,14 +111,16 @@ accidentandemergencydatademographicdata_cleaned <- left_join(accidentandemergenc
 ae_age_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
   select(-Deprivation, -Sex) %>% 
   group_by(HBName, Age, Month) %>% 
-  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop') %>% 
+  mutate(type = "Age Based Data")
 
 ########## Gender Based Analysis for Graph ##########
 
 gender_ae_analysis <- accidentandemergencydatademographicdata_cleaned %>% 
   select(-Deprivation, -Age) %>% 
   group_by(HBName, Sex, Month) %>% 
-  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')
+  summarise(NumberOfAttendances = sum(NumberOfAttendances), .groups = 'drop')%>% 
+  mutate(type = "Sex Based Data")
 
 gender_ae_analysis$Sex <- gender_ae_analysis$Sex %>% replace_na('Unknown') ### Replacing NA data with unknown
 
