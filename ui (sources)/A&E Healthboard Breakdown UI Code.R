@@ -24,8 +24,15 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                           column(3, selectInput(inputId = "ae_age_hb_input", label = "Select the healthboard you want to see data for", choices = unique(ae_age_analysis$HBName)))),
                         
                         fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_age", width = "300%", height = "600px")))
+                          column(3, plotlyOutput("total_ae_attend_by_age", width = "300%", height = "600px"))),
+                        ############################################################################################
+                        h3("Accident and Emergency Attendances by Sex", style = "color: #336699 ; font-weight: 600"),
                         
+                        fluidRow(
+                          column(3, selectInput(inputId = "ae_gender_hb_input", label = "Select the healthboard you want to see data for", choices = unique(gender_ae_analysis$HBName)))),
+                        
+                        fluidRow(
+                          column(3, plotlyOutput("total_ae_attend_by_gender", width = "300%", height = "600px")))
                         
                         
                         ) #End of TabPanel
