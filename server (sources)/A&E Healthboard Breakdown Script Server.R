@@ -52,3 +52,21 @@ output$total_ae_attend_by_age <- renderPlotly({
                   mode = 'lines',
                   orientation = 'h')
 })
+
+filter_healthboard_ae_gender <- reactive ({
+  
+  filter_healthboard_ae_gender <- gender_ae_analysis[gender_ae_analysis$HBName == input$ae_gender_hb_input,]
+  
+  return(filter_healthboard_ae_gender)
+})
+
+output$total_ae_attend_by_gender <- renderPlotly({
+  
+  plot <- plot_ly(data = filter_healthboard_ae_gender(),
+                  x = ~ Month,
+                  y = ~ NumberOfAttendances,
+                  color = ~ Category,
+                  type = 'scatter',
+                  mode = 'lines',
+                  orientation = 'h')
+})
