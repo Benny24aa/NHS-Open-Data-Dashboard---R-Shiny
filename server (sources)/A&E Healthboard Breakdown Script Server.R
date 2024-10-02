@@ -70,3 +70,22 @@ output$total_ae_attend_by_gender <- renderPlotly({
                   mode = 'lines',
                   orientation = 'h')
 })
+
+filter_healthboard_ae_deprivation <- reactive ({
+  
+  filter_healthboard_ae_deprivation <- deprivation_ae_analysis[deprivation_ae_analysis$HBName == input$ae_deprivation_hb_input,]
+  
+  return(filter_healthboard_ae_deprivation)
+})
+
+output$total_ae_attend_by_deprivation <- renderPlotly({
+  
+  plot <- plot_ly(data = filter_healthboard_ae_deprivation(),
+                  x = ~ Month,
+                  y = ~ NumberOfAttendances,
+                  color = ~ Category,
+                  type = 'scatter',
+                  mode = 'lines',
+                  orientation = 'h')
+})
+
