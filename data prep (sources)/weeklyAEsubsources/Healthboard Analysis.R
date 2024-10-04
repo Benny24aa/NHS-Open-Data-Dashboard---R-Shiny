@@ -77,3 +77,5 @@ merged_ae_data_full_data <- full_join(merged_ae_data_100k_rate, merged_ae_data, 
   select(-totalseen.y) %>% 
   rename(totalseen = totalseen.x)
 
+hbtypeaelist <- merged_ae_data_full_data %>% 
+  distinct(HBName,type)
