@@ -39,7 +39,7 @@ output$total_ae_attend_by_hb <- renderPlotly({
 
 filter_healthboard_ae_type_compare <- reactive({
   
-  filter_healthboard_ae_type_compare <- merged_ae_data_full_data[merged_ae_data_full_data$type == input$type_ae_input_compare,]
+  filter_healthboard_ae_type_compare <- merged_ae_data_full_data_compare[merged_ae_data_full_data_compare$type == input$type_ae_input_compare,]
   
   return(filter_healthboard_ae_type_compare)
   
@@ -49,28 +49,15 @@ filter_healthboard_ae_type_compare <- reactive({
 
 output$total_ae_attend_by_hb_compare <- renderPlotly({
   
-    plot_ly(data = filter_healthboard_ae_type_compare(),
-      x = ~ WeekEndingDate,
-            y = ~ totalseen,
+  filter_healthboard_ae_type_compare() %>% 
+    plot_ly(x = ~ WeekEndingDate,
+            y = .[[input$AE_Graph_Type_Compare]],
             color = ~ HBName,
             type = 'scatter',
             mode = 'lines',
             orientation = 'h')
 })
 
-
-### Comparing Healthboard Graphs for rates
-
-output$total_ae_attend_by_hb_Rates_compare <- renderPlotly({
-
-    plot_ly(data = filter_healthboard_ae_type_compare(),
-      x = ~ WeekEndingDate,
-            y = ~ Rate,
-            color = ~ HBName,
-            type = 'scatter',
-            mode = 'lines',
-            orientation = 'h')
-})
 
 ###### Demographic AE Data Plotly and Filters ######
 filter_healthboard_ae_age <- reactive({
