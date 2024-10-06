@@ -60,3 +60,6 @@ deprivation_ae_analysis <- deprivation_ae_analysis %>%
 deprivation_ae_analysis$Month <- ym(deprivation_ae_analysis$Month)
 
 merged_ae_demographic_data<- bind_rows(ae_age_analysis, deprivation_ae_analysis, gender_ae_analysis) 
+
+hbcategorytype <- merged_ae_demographic_data %>% 
+  distinct(HBName,type)
