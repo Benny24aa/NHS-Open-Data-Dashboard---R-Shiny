@@ -25,8 +25,9 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         fluidRow(
                           column(3, plotlyOutput("total_ae_attend_by_hb_compare", width = "300%", height = "600px"))),
                         
-                  
-                        ###### Demographic Data graphs
+                        ####################################
+                        ###### Demographic Data graphs #####
+                        ####################################
                         
                         h1("Monthly Demographic Data for Accident and Emergency Attendance across Scotland", style = "color: #336699 ; font-weight: 600"),
                         p("Coming soon"),
@@ -34,28 +35,13 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         h3("Accident and Emergency Attendances by Age Group", style = "color: #336699 ; font-weight: 600"),
                       
                         fluidRow(
-                          column(3, selectInput(inputId = "ae_age_hb_input", label = "Select the healthboard you want to see data for", choices = unique(ae_age_analysis$HBName)))),
-                        
+                          column(3, selectInput(inputId = "demo_monthly_ae_hb_input", label = "Select the healthboard you want to see data for", choices = unique(merged_ae_demographic_data$HBName))),
+                          column(3, uiOutput("filter_healthboard_ae_category_demo_monthly")),
+                        ),
                         fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_age", width = "300%", height = "600px"))),
+                          column(3, plotlyOutput("total_ae_attend_by_age", width = "300%", height = "600px")))
                         ############################################################################################
-                        h3("Accident and Emergency Attendances by Sex", style = "color: #336699 ; font-weight: 600"),
                         
-                        fluidRow(
-                          column(3, selectInput(inputId = "ae_gender_hb_input", label = "Select the healthboard you want to see data for", choices = unique(gender_ae_analysis$HBName)))),
-                        
-                        fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_gender", width = "300%", height = "600px"))),
-                        
-                        ######################
-                        
-                        h3("Accident and Emergency Attendances by Deprivation ", style = "color: #336699 ; font-weight: 600"),
-                        
-                        fluidRow(
-                          column(3, selectInput(inputId = "ae_deprivation_hb_input", label = "Select the healthboard you want to see data for", choices = unique(deprivation_ae_analysis$HBName)))),
-                        
-                        fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_deprivation", width = "300%", height = "600px")))
                         
                         
                         ) #End of TabPanel
