@@ -60,18 +60,29 @@ output$total_ae_attend_by_hb_compare <- renderPlotly({
 
 
 ###### Demographic AE Data Plotly and Filters ######
-filter_healthboard_ae_age <- reactive({
+filter_healthboard_ae_demo_monthly <- reactive({
   
-  filter_healthboard_ae_age <- ae_age_analysis[ae_age_analysis$HBName == input$ae_age_hb_input,]
+  filter_healthboard_ae_demo_monthly <- merged_ae_demographic_data[merged_ae_demographic_data$HBName == input$demo_monthly_ae_hb_input,]
   
-  return(filter_healthboard_ae_age)
+  return(filter_healthboard_ae_demo_monthly)
   
+})
+
+output$filter_healthboard_ae_category_demo_monthly <- renderUI({
+
+  aegraphmonthlydemotype <- hbcategorytype %>%
+    filter(HBName %in% input$demo_monthly_ae_hb_input) %>%
+    pull(type)
+
+  selectInput(inputId = "Typeae_input", label = "Select Type to Show", choices = aegraphmonthlydemotype)
+
 })
 
 output$total_ae_attend_by_age <- renderPlotly({
   
-  plot <- plot_ly(data = filter_healthboard_ae_age(),
-                  x = ~ Month,
+  filter_healthboard_ae_demo_monthly() %>% 
+    filter(type == input$Typeae_input) %>% 
+          plot_ly(x = ~ Month,
                   y = ~ NumberOfAttendances,
                   color = ~ Category,
                   type = 'scatter',
@@ -79,39 +90,4 @@ output$total_ae_attend_by_age <- renderPlotly({
                   orientation = 'h')
 })
 
-filter_healthboard_ae_gender <- reactive ({
-  
-  filter_healthboard_ae_gender <- gender_ae_analysis[gender_ae_analysis$HBName == input$ae_gender_hb_input,]
-  
-  return(filter_healthboard_ae_gender)
-})
-
-output$total_ae_attend_by_gender <- renderPlotly({
-  
-  plot <- plot_ly(data = filter_healthboard_ae_gender(),
-                  x = ~ Month,
-                  y = ~ NumberOfAttendances,
-                  color = ~ Category,
-                  type = 'scatter',
-                  mode = 'lines',
-                  orientation = 'h')
-})
-
-filter_healthboard_ae_deprivation <- reactive ({
-  
-  filter_healthboard_ae_deprivation <- deprivation_ae_analysis[deprivation_ae_analysis$HBName == input$ae_deprivation_hb_input,]
-  
-  return(filter_healthboard_ae_deprivation)
-})
-
-output$total_ae_attend_by_deprivation <- renderPlotly({
-  
-  plot <- plot_ly(data = filter_healthboard_ae_deprivation(),
-                  x = ~ Month,
-                  y = ~ NumberOfAttendances,
-                  color = ~ Category,
-                  type = 'scatter',
-                  mode = 'lines',
-                  orientation = 'h')
-})
 
