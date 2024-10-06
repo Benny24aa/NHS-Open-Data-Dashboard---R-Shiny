@@ -20,6 +20,7 @@ hb_list_ae <- hbtypeaelist %>%
 
 })
 
+
 #### Individual HB Seen Graph
 
 output$total_ae_attend_by_hb <- renderPlotly({
@@ -27,21 +28,7 @@ output$total_ae_attend_by_hb <- renderPlotly({
   filter_healthboard_ae_type() %>% 
     filter(HBName == input$HBnameInputAE) %>% 
      plot_ly(x = ~ WeekEndingDate,
-                  y = ~ totalseen,
-                  color = ~ HBName,
-                  type = 'scatter',
-                  mode = 'lines',
-                  orientation = 'h')
-})
-
-### Individual rate graph
-
-output$total_ae_attend_by_hb_Rates <- renderPlotly({
-  
-  filter_healthboard_ae_type() %>% 
-    filter(HBName == input$HBnameInputAE) %>% 
-plot_ly(x = ~ WeekEndingDate,
-                  y = ~ Rate,
+                  y = .[[input$AE_Graph_Type]],
                   color = ~ HBName,
                   type = 'scatter',
                   mode = 'lines',
