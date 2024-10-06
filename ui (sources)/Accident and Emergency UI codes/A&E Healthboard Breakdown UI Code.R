@@ -18,21 +18,14 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         p("Coming soon"),
                         
                         fluidRow(
-                          column(3, selectInput(inputId = "type_ae_input_compare", label = "Select type of data you wish to see", choices = unique(merged_ae_data_full_data$type)))),
-                          h3("Accident and Emergency - Number seen within selected time period by Health Board", style = "color: #336699 ; font-weight: 600"),
-                          p("Coming soon"),
+                          column(3, selectInput(inputId = "type_ae_input_compare", label = "Select type of data you wish to see", choices = unique(merged_ae_data_full_data_compare$type))),
+                          column(3, selectInput(inputId = "AE_Graph_Type_Compare", label = "Select Column to Plot", choices = c("totalseen", "Rate")))
+                          
+                          ),
                         fluidRow(
                           column(3, plotlyOutput("total_ae_attend_by_hb_compare", width = "300%", height = "600px"))),
-                        h3("Accident and Emergency - People per 100k rate seen within selected time period by choosen Health Board", style = "color: #336699 ; font-weight: 600"),
-                        p("Coming soon"),
-                        fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_hb_Rates_compare", width = "300%", height = "600px"))),
                         
-                          
-                        
-                        
-                      
-                        
+                  
                         ###### Demographic Data graphs
                         
                         h1("Monthly Demographic Data for Accident and Emergency Attendance across Scotland", style = "color: #336699 ; font-weight: 600"),
