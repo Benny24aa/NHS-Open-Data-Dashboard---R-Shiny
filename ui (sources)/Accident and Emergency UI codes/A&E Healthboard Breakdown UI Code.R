@@ -8,13 +8,10 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                           column(3, selectInput(inputId = "AE_Graph_Type", label = "Select Column to Plot", choices = c("totalseen", 'Rate')))
                           
                           ),
-                        
-                        h3("Accident and Emergency - Number seen within selected time period by choosen Health Board", style = "color: #336699 ; font-weight: 600"),
-                        p("Coming soon"),
                         fluidRow(
                           column(3, plotlyOutput("total_ae_attend_by_hb", width = "300%", height = "600px"))),
                         
-                        h1("Weekly Breakdown of Accident and Emergency Data at Health Board Level", style = "color: #336699 ; font-weight: 600"),
+                        h1("Weekly Breakdown of Accident and Emergency Data at Health Board Level Comparison", style = "color: #336699 ; font-weight: 600"),
                         p("Coming soon"),
                         
                         fluidRow(
@@ -31,15 +28,13 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Health Board Break
                         
                         h1("Monthly Demographic Data for Accident and Emergency Attendance across Scotland", style = "color: #336699 ; font-weight: 600"),
                         p("Coming soon"),
-                        
-                        h3("Accident and Emergency Attendances by Age Group", style = "color: #336699 ; font-weight: 600"),
                       
                         fluidRow(
                           column(3, selectInput(inputId = "demo_monthly_ae_hb_input", label = "Select the healthboard you want to see data for", choices = unique(merged_ae_demographic_data$HBName))),
                           column(3, uiOutput("filter_healthboard_ae_category_demo_monthly")),
                         ),
                         fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_age", width = "300%", height = "600px")))
+                          column(3, plotlyOutput("total_ae_attend_demo_type", width = "300%", height = "600px")))
                         ############################################################################################
                         
                         
