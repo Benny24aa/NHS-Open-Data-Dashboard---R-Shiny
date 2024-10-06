@@ -78,7 +78,7 @@ output$filter_healthboard_ae_category_demo_monthly <- renderUI({
 
 })
 
-output$total_ae_attend_by_age <- renderPlotly({
+output$total_ae_attend_demo_type <- renderPlotly({
   
   filter_healthboard_ae_demo_monthly() %>% 
     filter(type == input$Typeae_input) %>% 
