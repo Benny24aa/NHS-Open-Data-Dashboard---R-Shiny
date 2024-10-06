@@ -19,3 +19,6 @@ source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep 
 
 # Sourcing in Healthboard Demographic Data Analysis
 source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/weeklyAEsubsources/Healthboard Analysis Demographic Data Prep.R'))
+
+# Sourcing in Healthboard When Data Analysis
+source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/weeklyAEsubsources/Healthboard Analysis when Analysis.R'))
