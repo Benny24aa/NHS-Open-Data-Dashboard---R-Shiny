@@ -34,3 +34,5 @@ library(tidyverse)
 source(file.path('data prep (sources)/Geo Lookup Source Script.R'))
 #### Accident and Emergency Data Prep Script ####
 source(file.path('data prep (sources)/WeeklyA&EActivityandWaitingTimesPrep.R'))
+#### Diagnostics Prep Script
+source(file.path('data prep (sources)/Waiting Times by Healthboard/Diagnostics Waiting Times.R'))
