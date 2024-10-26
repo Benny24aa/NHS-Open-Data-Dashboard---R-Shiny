@@ -6,6 +6,7 @@ accidentandemergencydata_cleaned <- accidentandemergencydata |>
   rename(HospitalCode = TreatmentLocation)|> ### To allow for future left_join with Hospital reference file
   rename(HB = HBT)  ### To allow for future left_join with HBT reference file
  
+rm(accidentandemergencydata)
 
 accidentandemergencydata_cleaned <- left_join(accidentandemergencydata_cleaned, Hospital_Lookup_Final, by = "HospitalCode") %>%  ### Left Join for Hospital Names
   select(-HospitalCode) #### Removing hospital code as no longer needed anymore so removed to reduce size of dataframe
