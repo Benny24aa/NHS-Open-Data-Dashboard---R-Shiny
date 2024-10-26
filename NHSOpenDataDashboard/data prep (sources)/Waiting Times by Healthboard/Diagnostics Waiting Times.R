@@ -14,3 +14,13 @@ diagnostics_waiting_times <- full_join(HB_Lookup_Cleaned, diagnostics_waiting_ti
 #### Converting monthending to date format.
 diagnostics_waiting_times$MonthEnding <- ymd(diagnostics_waiting_times$MonthEnding)
 
+### Imaging Dataset
+
+diagnostics_waiting_times_imaging <- diagnostics_waiting_times %>% 
+  filter(DiagnosticTestType == "Imaging")%>% 
+  select(-DiagnosticTestType)
+
+### Endoscopy Dataset
+diagnostics_waiting_times_endoscopy <- diagnostics_waiting_times %>% 
+  filter(DiagnosticTestType == "Endoscopy") %>% 
+  select(-DiagnosticTestType)
