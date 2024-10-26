@@ -31,6 +31,6 @@ library(kableExtra)
 library(tidyverse)
 
 #### Geo Lookup Data Prep Script ####
-source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/Geo Lookup Source Script.R'))
+source(file.path('data prep (sources)/Geo Lookup Source Script.R'))
 #### Accident and Emergency Data Prep Script ####
-source(file.path('C:/Users/harle/OneDrive/Desktop/NHS Open Data R App/Data Prep Respos/NHS-Open-Data-Dashboard---R-Shiny/data prep (sources)/WeeklyA&EActivityandWaitingTimesPrep.R'))
+source(file.path('data prep (sources)/WeeklyA&EActivityandWaitingTimesPrep.R'))
