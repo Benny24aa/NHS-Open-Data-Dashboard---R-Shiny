@@ -52,7 +52,7 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
 
  merged_ae_data<- bind_rows(total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned) 
 
- rm(total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned)
+ rm(total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_twelve_hours)
 
   merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
 
