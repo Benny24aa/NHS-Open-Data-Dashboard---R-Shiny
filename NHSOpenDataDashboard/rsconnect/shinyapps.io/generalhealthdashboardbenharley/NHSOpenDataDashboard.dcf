@@ -1,0 +1,12 @@
+name: NHSOpenDataDashboard
+title: NHSOpenDataDashboard
+username: generalhealthdashboardbenharley
+account: generalhealthdashboardbenharley
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13140072
+bundleId: 9272943
+url: https://benny24aa.shinyapps.io/NHSOpenDataDashboard/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
