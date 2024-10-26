@@ -52,7 +52,9 @@ total_ae_episodes_seen_over_twelve_hours <- full_join(total_ae_episodes_healthbo
 
  merged_ae_data<- bind_rows(total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned) 
 
- merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
+ rm(total_ae_episodes_seen_over_eight_hours, total_ae_episodes_seen_over_four_hours, total_ae_episodes_seen_over_twelve_hours, total_ae_episodes_healthboard_level_cleaned)
+
+  merged_ae_data$WeekEndingDate <- ymd(merged_ae_data$WeekEndingDate)
 
  #### 100k rates dataset
  
@@ -77,6 +79,7 @@ merged_ae_data_full_data <- full_join(merged_ae_data_100k_rate, merged_ae_data, 
   select(-totalseen.y) %>% 
   rename(totalseen = totalseen.x)
 
+rm(merged_ae_data_100k_rate, merged_ae_data)
 merged_ae_data_full_data_compare <- merged_ae_data_full_data
 
 hbtypeaelist <- merged_ae_data_full_data %>% 
