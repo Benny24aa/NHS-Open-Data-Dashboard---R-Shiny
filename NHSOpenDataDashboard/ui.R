@@ -15,7 +15,8 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            ##### Tab Panels
            information, ### Information Tab being called on by UI
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
-           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Healthboard_Breakdown) 
+           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Healthboard_Breakdown),
+           navbarMenu("Diagnostic Waiting Times")
 
 
 
