@@ -29,6 +29,7 @@ library(crosstalk)
 library(lubridate)
 library(kableExtra)
 library(tidyverse)
+library(leaflet)
 
 #### Geo Lookup Data Prep Script ####
 source(file.path('data prep (sources)/Geo Lookup Source Script.R'))
