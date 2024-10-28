@@ -44,4 +44,20 @@ diagnostics_waiting_times_endoscopy <- diagnostics_waiting_times %>%
   filter(DiagnosticTestType == "Endoscopy") %>% 
   select(-DiagnosticTestType)
 
- 
+diagnostics_waiting_times_endoscopy_per_100k <- diagnostics_waiting_times_endoscopy %>% 
+  filter(MonthEnding > '2020-01-01') %>% 
+  mutate(Year = MonthEnding) %>% 
+  mutate(Year = gsub("2024", "2023", Year)) %>% 
+  mutate(Year = gsub("2025", "2023", Year))
+
+diagnostics_waiting_times_endoscopy_per_100k$Year <- substr(diagnostics_waiting_times_endoscopy_per_100k$Year, 1, 4)
+
+diagnostics_waiting_times_endoscopy_per_100k$Year <- as.numeric(diagnostics_waiting_times_endoscopy_per_100k$Year)
+
+diagnostics_waiting_times_endoscopy_per_100k <- left_join(diagnostics_waiting_times_endoscopy_per_100k,HB_Pop_Estimates,by = c("HBName", "Year")) #### Joining allages data onto dataset for rate calculation
+
+diagnostics_waiting_times_endoscopy_per_100k<- diagnostics_waiting_times_endoscopy_per_100k %>% 
+  select(-HB, -Year) %>% 
+  mutate(Rate = NumberOnList/AllAges) %>% 
+  mutate(Rate = Rate * 100000) %>% 
+  select(-AllAges)
