@@ -4,6 +4,8 @@ source("ui (sources)/Information Tab UI Code.R"
 )# Sourcing in Information Tab from different script
 source("ui (sources)/Reference File Tab UI Code.R") # Sourcing in Reference File UI tab script
 source("ui (sources)/Accident and Emergency UI codes/A&E Healthboard Breakdown UI Code.R")
+source("ui (sources)/Diagnostic Waiting Times Code/diagnostic waiting times ui.R")
+
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
                               target = "_blank"),
@@ -16,7 +18,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            information, ### Information Tab being called on by UI
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
            navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Healthboard_Breakdown),
-           navbarMenu("Diagnostic Waiting Times")
+           navbarMenu("Diagnostic Waiting Times", Diagnostics_section)
 
 
 
