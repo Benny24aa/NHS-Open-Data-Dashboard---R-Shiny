@@ -1,5 +1,6 @@
 diagnostics_waiting_times <- get_resource(res_id = "10dfe6f3-32de-4039-84c2-7e7794a06b31") ### Loads in data from open data scotland
 
+HBSHP_File <- sf::st_read("Scottish Healthboards/SG_NHS_HealthBoards_2019.shp")
 
 #### Data Cleaning
 diagnostics_waiting_times <- diagnostics_waiting_times %>% 
