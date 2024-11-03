@@ -18,6 +18,10 @@ source("landing pages/Information A&E Ui.R")
 source("landing pages/information diag page.R")
 ############################################
 
+############################################
+###### Download data pages 
+############################################
+
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
                               target = "_blank"),
