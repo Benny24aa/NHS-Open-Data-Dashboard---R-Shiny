@@ -1,10 +1,22 @@
-### Sourcing Scripts for Use for UI
+### Sourcing Scripts for Use for UI 
+
 
 source("ui (sources)/Information Tab UI Code.R"
 )# Sourcing in Information Tab from different script
+
 source("ui (sources)/Reference File Tab UI Code.R") # Sourcing in Reference File UI tab script
-source("ui (sources)/Accident and Emergency UI codes/A&E Healthboard Breakdown UI Code.R")
-source("ui (sources)/Diagnostic Waiting Times Code/diagnostic waiting times ui.R")
+
+source("ui (sources)/Accident and Emergency UI codes/A&E Healthboard Breakdown UI Code.R") #Healthboard analysis UI
+
+source("ui (sources)/Diagnostic Waiting Times Code/diagnostic waiting times ui.R") # Diagnostic waiting times analysis UI
+
+
+
+############################################
+####### Landing Pages for dashboard sourcing
+source("landing pages/Information A&E Ui.R")
+source("landing pages/information diag page.R")
+############################################
 
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
@@ -17,8 +29,8 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            ##### Tab Panels
            information, ### Information Tab being called on by UI
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
-           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Healthboard_Breakdown),
-           navbarMenu("Diagnostic Waiting Times", Diagnostics_section)
+           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Info_Ui, Accident_Emergency_Healthboard_Breakdown),
+           navbarMenu("Diagnostic Waiting Times", Diagnostic_Landing_Page_UI, Diagnostics_section)
 
 
 
