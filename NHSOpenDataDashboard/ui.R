@@ -15,7 +15,7 @@ source("ui (sources)/Diagnostic Waiting Times Code/diagnostic waiting times ui.R
 ############################################
 ####### Landing Pages for dashboard sourcing
 source("landing pages/Information A&E Ui.R")
-
+source("landing pages/information diag page.R")
 ############################################
 
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
@@ -30,7 +30,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            information, ### Information Tab being called on by UI
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
            navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Info_Ui, Accident_Emergency_Healthboard_Breakdown),
-           navbarMenu("Diagnostic Waiting Times", Diagnostics_section)
+           navbarMenu("Diagnostic Waiting Times", Diagnostic_Landing_Page_UI, Diagnostics_section)
 
 
 
