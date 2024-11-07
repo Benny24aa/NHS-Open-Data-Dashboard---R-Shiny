@@ -15,7 +15,7 @@ ref_file_list <- c("Hospital Lookup" = "Hospital_Lookup_Final",
                    "Data Zone Lookup" = "Data_Zone_Lookup_Cleaned",
                    "Interminate Zone Lookup" = "Interminate_Zone_Lookup_Cleaned",
                    "Council Lookup" = "Council_Lookup_Cleaned",
-                   "HB Lookup" =" HB_Lookup_Cleaned")
+                   "HB Lookup" = "HB_Lookup_Cleaned")
 
 
 # Healthboard Lookup File

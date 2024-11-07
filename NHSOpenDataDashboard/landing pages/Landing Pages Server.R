@@ -16,8 +16,6 @@ observeEvent(input$Accident_Emergency_Info_Button,
 
 ##### Diagnostic Button
 
-##### Accident and Emergency
-
 observeEvent(input$Diagnostic_Button,
              showModal(modalDialog( # creates a modal: a pop-up box that contains text information
                title = "New content added and future updates",
