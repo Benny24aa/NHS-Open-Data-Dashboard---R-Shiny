@@ -21,6 +21,9 @@ source("landing pages/information diag page.R")
 ############################################
 ###### Download data pages 
 ############################################
+source("download pages/Accident and Emergency Download Page UI.R")
+
+############################################
 
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
@@ -33,7 +36,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            ##### Tab Panels
            information, ### Information Tab being called on by UI
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
-           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Info_Ui, Accident_Emergency_Healthboard_Breakdown),
+           navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Info_Ui, Accident_Emergency_Healthboard_Breakdown, Accident_Emergency_Download_Page),
            navbarMenu("Diagnostic Waiting Times", Diagnostic_Landing_Page_UI, Diagnostics_section)
 
 

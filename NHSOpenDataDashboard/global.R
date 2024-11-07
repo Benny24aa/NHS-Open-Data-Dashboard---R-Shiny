@@ -36,3 +36,10 @@ source(file.path('data prep (sources)/Geo Lookup Source Script.R'))
 source(file.path('data prep (sources)/WeeklyA&EActivityandWaitingTimesPrep.R'))
 #### Diagnostics Prep Script
 source(file.path('data prep (sources)/Waiting Times by Healthboard/Diagnostics Waiting Times.R'))
+
+
+
+
+
+#### Download Pages Script
+source(file.path('download pages/data prep for download pages.R'))
