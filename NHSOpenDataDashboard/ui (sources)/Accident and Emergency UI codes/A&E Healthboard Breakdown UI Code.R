@@ -1,4 +1,4 @@
-Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "HealthBoard Breakdowns", 
+Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Healthboard Breakdowns", 
                         icon = icon("hospital"),
                         h1("Weekly Breakdown of Accident and Emergency Data at Health Board Level", style = "color: #336699 ; font-weight: 600"),
                         p("Coming soon"),

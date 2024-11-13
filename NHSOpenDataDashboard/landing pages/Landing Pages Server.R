@@ -5,7 +5,7 @@ observeEvent(input$Accident_Emergency_Info_Button,
                title = "New content added and future updates",
                h4("Future updates"),
                tags$ul(
-                 tags$li(""),
+                 tags$li("No Updates expected for now"),
                  tags$li(""),
                  tags$li(""),
                  tags$li(""),
@@ -19,7 +19,7 @@ observeEvent(input$Accident_Emergency_Info_Button,
 observeEvent(input$Diagnostic_Button,
              showModal(modalDialog( # creates a modal: a pop-up box that contains text information
                title = "New content added and future updates",
-               h4("Future updates"),
+               h4("Potential Future Updates"),
                tags$ul(
                  tags$li(""),
                  tags$li(""),
