@@ -10,7 +10,9 @@ source("ui (sources)/Accident and Emergency UI codes/A&E Healthboard Breakdown U
 
 source("ui (sources)/Diagnostic Waiting Times Code/diagnostic waiting times ui.R") # Diagnostic waiting times analysis UI
 
-
+source("Commentary Files/Commentary UI.R")
+source("Commentary Files/Using Dashboard.R")
+source("Commentary Files/Roadmap.R")
 
 ############################################
 ####### Landing Pages for dashboard sourcing
@@ -34,7 +36,8 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               HTML("<html lang='en'>")),
            
            ##### Tab Panels
-           information, ### Information Tab being called on by UI
+           information, ### basic information/home page
+           navbarMenu("Further Information", Commentary, DashboardUse, Roadmap), ### Commentary Page
            navbarMenu("Reference Files", geofilesui),#Nav Bar for all reference files
            navbarMenu("Accident and Emergency Waiting Times",Accident_Emergency_Info_Ui, Accident_Emergency_Healthboard_Breakdown, Accident_Emergency_Download_Page),
            navbarMenu("Diagnostic Waiting Times", Diagnostic_Landing_Page_UI, Diagnostics_section)

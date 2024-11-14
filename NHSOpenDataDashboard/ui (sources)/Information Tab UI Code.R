@@ -1,5 +1,5 @@
-information <- tabPanel(title = "Information", 
-         icon = icon("info-circle"),
+information <- tabPanel(title = "Home", 
+         icon = icon("home"),
          fluidRow(
            column(6,
                   h2("Welcome to the NHS Open Data Dashboard", style = "color:  #336699 ; font-weight: 600"))),
