@@ -17,7 +17,15 @@ Commentary <- tabPanel(title = "Commentary and Updates",
                                       tags$ul(
                                         tags$li("Graphs added for age, gender, and deprivation quintiles for accident and emergency admissions."),
                                         tags$li("Download data tab added to drop down list for accident and emergency data"),
-                                        tags$li("Landing Page added for accident and emergency tab"))
+                                        tags$li("Landing Page added for accident and emergency tab - Scotland wide graph coming soon")),
+                                      
+                                      conditionalPanel(
+                                        condition= 'input.com_select == "Diag"',
+                                        p(h3("17/11/2024")),
+                                        h4("Diagnostics Healthboard Section "),
+                                        tags$ul(
+                                          tags$li("Landing Page added for diagnostic tab"))
+                                      ) # end of conditional panel
                                     ) # end of conditional panel
                                     
                           ))) #End of TabPanel
