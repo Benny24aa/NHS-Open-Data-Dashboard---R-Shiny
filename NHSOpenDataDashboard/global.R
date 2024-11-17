@@ -45,4 +45,4 @@ source(file.path('data prep (sources)/Waiting Times by Healthboard/Diagnostics W
 #### Download Pages Script
 source(file.path('download pages/data prep for download pages.R'))
 
-com_list <- c("Accident and Emergency" = "aecom")
+com_list <- c("Accident and Emergency" = "aecom", "Diagnostics" = "Diag")
