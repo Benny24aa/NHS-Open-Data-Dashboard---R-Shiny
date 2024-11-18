@@ -13,7 +13,8 @@ Accident_Emergency_Info_Ui <- tabPanel(title = "Information Page",
                                  h4(tags$b("What is in this section?" , style = "color:  #336699 ; font-weight: 600")),
                                  p("This section covers accident and emergency data at scotland, healthboard, and hospital level across Scotland. Numerous graphs allows the user to see how different factors such as sex, age and deprivation quintle affects admission numbers and rates."), 
                                  h4(tags$b("Scotland Wide Graph", style = "color:  #336699 ; font-weight: 600" )),
-                                 p(""),
+                                 fluidRow(
+                                   column(3, plotlyOutput("scot_accident_land_page_graph", width = "300%", height = "600px"))),
                                  h4(tags$b(" Disclosure and Data Security Statement", style = "color:  #336699 ; font-weight: 600")),
                                  p("All content is available under the Open Government License V3.0, and is available on NHS Scotland Open Data except where otherwise stated. If you need any assistance with this, please visit the UK Government Website for more information regarding the Open Government License. This dashboard is not a representive of the NHS and therefore is not an official source of information.")),
                         )#End of Fluid Row
