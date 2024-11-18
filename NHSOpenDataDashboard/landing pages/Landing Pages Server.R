@@ -29,3 +29,15 @@ observeEvent(input$Diagnostic_Button,
                  tags$li("")),
                size = "m",
                easyClose = TRUE, fade=FALSE,footer = modalButton("Close (Esc)"))))
+
+
+##### A&E graph Scotland
+
+output$scot_accident_land_page_graph <- renderPlotly({
+
+    plot_ly(scotland_ae_data,
+      x = ~ WeekEndingDate,
+            y = ~totalseen,
+            type = 'scatter',
+            mode = 'lines')
+})
