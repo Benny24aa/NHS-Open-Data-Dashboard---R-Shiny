@@ -88,7 +88,7 @@ scotland_ae_data <- merged_ae_data_full_data_compare %>%
   filter(type == "Total Attends") %>% 
   select(-HBName, -type) %>% 
   group_by(WeekEndingDate) %>% 
-  summarise('Total Seen' = sum(totalseen), .groups = 'drop') %>% 
+  summarise('totalseen' = sum(totalseen), .groups = 'drop') %>% 
   filter(WeekEndingDate > '2020-01-05')
 
 hbtypeaelist <- merged_ae_data_full_data %>% 
