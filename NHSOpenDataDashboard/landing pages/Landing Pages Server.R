@@ -39,5 +39,7 @@ output$scot_accident_land_page_graph <- renderPlotly({
       x = ~ WeekEndingDate,
             y = ~totalseen,
             type = 'scatter',
-            mode = 'lines')
+            mode = 'lines') %>%
+    layout(xaxis = list(title = 'Week Ending'),
+           yaxis = list(title = 'Total Attends'))
 })
