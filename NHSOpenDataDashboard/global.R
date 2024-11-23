@@ -1,4 +1,4 @@
-# Libraries
+# Libraries 
 
 library(shiny)
 library(shinyWidgets)
@@ -46,3 +46,5 @@ source(file.path('data prep (sources)/Waiting Times by Healthboard/Diagnostics W
 source(file.path('download pages/data prep for download pages.R'))
 
 com_list <- c("Accident and Emergency" = "aecom", "Diagnostics" = "Diag")
+
+diagnostic_list <- c("Endoscopy Data" = "endo", "Imagery Data" = "imag")
