@@ -20,7 +20,7 @@ Accident_Emergency_Healthboard_Breakdown <- tabPanel(title = "Healthboard Breakd
                           
                           ),
                         fluidRow(
-                          column(3, plotlyOutput("total_ae_attend_by_hb_compare", width = "300%", height = "300px"))),
+                          column(3, plotlyOutput("total_ae_attend_by_hb_compare", width = "300%", height = "600px"))),
                         
                         ####################################
                         ###### Demographic Data graphs #####
