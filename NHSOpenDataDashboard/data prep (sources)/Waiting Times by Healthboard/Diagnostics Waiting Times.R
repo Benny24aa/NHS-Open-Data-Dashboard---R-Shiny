@@ -62,7 +62,4 @@ diagnostics_waiting_times_endoscopy_per_100k<- diagnostics_waiting_times_endosco
   mutate(Rate = Rate * 100000) %>% 
   select(-AllAges)
 
-  
-
-rm(diagnostics_waiting_times_endoscopy, diagnostics_waiting_times_imaging) # No longer needed
 
