@@ -62,5 +62,12 @@ diagnostics_waiting_times_endoscopy_per_100k<- diagnostics_waiting_times_endosco
   mutate(Rate = Rate * 100000) %>% 
   select(-AllAges)
 
-rm(diagnostics_waiting_times_endoscopy, diagnostics_waiting_times_imaging, diagnostics_waiting_times) # No longer needed
+diagnostics_all_total_scotland <- diagnostics_waiting_times %>% 
+  filter(WaitingTime == "0-7 days") %>% 
+  select(-HBName, -DiagnosticTestType, -DiagnosticTestDescription, -WaitingTime) %>% 
+  group_by(MonthEnding) %>% 
+  summarise(Total_On_Waiting_List = sum(NumberOnList), .groups = 'drop')
+  
+
+rm(diagnostics_waiting_times_endoscopy, diagnostics_waiting_times_imaging) # No longer needed
 
