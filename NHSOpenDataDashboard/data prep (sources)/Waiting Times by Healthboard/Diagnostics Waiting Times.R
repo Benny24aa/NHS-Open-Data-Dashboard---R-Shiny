@@ -65,6 +65,7 @@ diagnostics_waiting_times_endoscopy_per_100k<- diagnostics_waiting_times_endosco
 diagnostics_all_total_scotland <- diagnostics_waiting_times %>% 
   filter(WaitingTime == "0-7 days") %>% 
   select(-HBName, -DiagnosticTestType, -DiagnosticTestDescription, -WaitingTime) %>% 
+  filter(!is.na(NumberOnList)) %>% 
   group_by(MonthEnding) %>% 
   summarise(Total_On_Waiting_List = sum(NumberOnList), .groups = 'drop')
 
