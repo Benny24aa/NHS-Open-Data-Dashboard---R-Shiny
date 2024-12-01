@@ -43,3 +43,14 @@ output$scot_accident_land_page_graph <- renderPlotly({
     layout(xaxis = list(title = 'Week Ending'),
            yaxis = list(title = 'Total Attends'))
 })
+
+output$scot_diagnsotics_land_page_graph <-  renderPlotly({
+  
+  plot_ly(diagnostics_all_total_scotland,
+          x = ~MonthEnding,
+          y = ~Total_On_Waiting_List,
+          type = 'scatter',
+          mode = 'lines') %>%
+    layout(xaxis = list(title = 'Month Ending'),
+           yaxis = list(title = 'Total on Waiting List since Day 0'))
+})
